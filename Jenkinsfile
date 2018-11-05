@@ -36,5 +36,6 @@ pipeline {
 					sh 'ansible-playbook site.yml --extra-vars "source_ip=${SOURCE_IP}"'
 				}
 			}
+        }
     }
 }
