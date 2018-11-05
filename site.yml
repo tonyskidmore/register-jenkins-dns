@@ -10,6 +10,7 @@
       zone_name: cloud-msp.net
       state: present
       relative_name: "{{ ansible_nodename }}"
+      time_to_live: 300
       record_type: A
       records:
         - entry: "{{ source_ip }}"
