@@ -33,8 +33,7 @@ pipeline {
 
 			steps {
 				wrap([$class: 'AnsiColorBuildWrapper', colorMapName: "xterm"]) {
-					sh 'ansible-playbook site.yml \
-										--extra-vars "source_ip=${SOURCE_IP}"
+					sh 'ansible-playbook site.yml --extra-vars "source_ip=${SOURCE_IP}"'
 				}
 			}
     }
