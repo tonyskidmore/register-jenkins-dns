@@ -1,0 +1,19 @@
+- name: register DNS address in Azure
+  hosts: localhost
+  connection: local
+  
+  tasks:
+  
+  - name: set DNS A record
+    azure_rm_dnsrecordset:
+      resource_group: cloud-msp.net
+      zone_name: cloud-msp.net
+      state: present
+      relative_name: "{{ ansible_nodename }}"
+      record_type: A
+      records:
+        - entry: "{{ source_ip }}"
+    no_log: True
+    when: 
+      - source_ip is defined
+  
